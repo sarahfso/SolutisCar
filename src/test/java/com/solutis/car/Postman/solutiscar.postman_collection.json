@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "850249cb-1ebe-449f-b5e1-1077d44f6f18",
+		"name": "solutiscar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27907842"
+	},
+	"item": [
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "Criar Cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"id_cliente\", pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"João\",\r\n    \"dataNascimento\":\"2000-02-25\",\r\n    \"cpf\":\"83401143018\",\r\n    \"sexo\":\"MASCULINO\",\r\n    \"numeroCNH\":\"13551553230\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carros",
+			"item": [
+				{
+					"name": "Criar Carro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"id_carro\", pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"placa\": \"ABC1234\",\r\n  \"chassi\": \"12345678901234567\",\r\n  \"cor\": \"Azul\",\r\n  \"valorDiaria\": 100,\r\n  \"imageUrl\": \"https://exemplo.com/imagem.jpg\",\r\n  \"modeloCarro\": {\r\n      \"descricao\": \"Modelo ABC\",\r\n        \"fabricante\": {\r\n         \"nome\": \"Fabricante XYZ\"\r\n        },\r\n        \"categoria\": \"SEDAN_MEDIO\"\r\n  },\r\n  \"acessorios\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Carros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhes Carro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carros/{{id_carro}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carros",
+								"{{id_carro}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aluguel",
+			"item": [
+				{
+					"name": "Criar aluguel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dataPedido\": \"2023-08-21\",\r\n  \"dataEntrega\": \"2023-08-25\",\r\n  \"dataDevolucao\": \"2023-08-28\",\r\n  \"valorTotal\": 350.00,\r\n  \"carro\": {\r\n        \"placa\": \"ABC1235\",\r\n        \"chassi\": \"12345678901234568\",\r\n        \"cor\": \"Azul\",\r\n        \"valorDiaria\": 100,\r\n        \"imageUrl\": \"https://exemplo.com/imagem.jpg\",\r\n        \"modeloCarro\": {\r\n            \"descricao\": \"Modelo ABC\",\r\n            \"fabricante\": {\r\n                \"nome\": \"Fabricante XYZ\"\r\n            },\r\n            \"categoria\": \"SEDAN_MEDIO\"\r\n        },\r\n        \"acessorios\": []\r\n    },\r\n    \"motorista\": {\r\n        \"nome\":\"João\",\r\n        \"dataNascimento\":\"2000-02-25\",\r\n        \"cpf\":\"07847494345\",\r\n        \"sexo\":\"MASCULINO\",\r\n        \"numeroCNH\":\"13551553231\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/aluguel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"aluguel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
